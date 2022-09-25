@@ -1,0 +1,40 @@
+.navbar{
+    background-color:#1C2B35;
+    height: 80px;
+    padding: 0 7rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar img{
+    width: 150px;
+    height: 50.5px;
+}
+.menu-tabs{
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+}
+.menu-tabs a{
+    text-decoration: none;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 300;
+    position: relative;
+}
+
+.menu-tabs a::after{
+    content: " ";
+    width: 0;
+    height: 2px;
+    background-color: #FF9900;
+    position: absolute;
+    top: 1.7rem;
+    left: 0;
+    transition: 0.3s ease-in-out;
+}
+
+.menu-tabs a:hover::after{
+    width: 100%;
+}

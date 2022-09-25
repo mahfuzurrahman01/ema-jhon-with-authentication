@@ -1,0 +1,67 @@
+.product-card {
+    width: 300px;
+    height: 485px;
+    border: 2px solid #95A0A7;
+    border-radius: 7px;
+    margin-top: 3rem;
+    padding: 8px;
+    position: relative;
+    margin: 0;
+}
+
+.product-card img {
+    width: 300px;
+    height: 300px;
+    border-radius: 8px;
+
+}
+
+.product-card h6 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    margin: 7px 0;
+    letter-spacing: 0.0015em;
+    margin-left: 7px;
+}
+
+.product-card p {
+    margin: 0;
+    margin-left: 7px;
+}
+
+.product-card .small {
+    color: gray;
+    font-weight: 400;
+    position: absolute;
+    bottom: 12%;
+}
+
+.product-card button {
+    background-color: #FFE0B3;
+    width: 100%;
+    height: 48px;
+    border-top: 2px solid #95A0A7;
+    border-end-start-radius: 5px;
+    border-end-end-radius: 5px;
+    position: absolute;
+    bottom: -0.3%;
+    top: 90.5%;
+    left: 0;
+    right: 0;
+    /* border:none; */
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 17px;
+    font-weight: 500;
+    gap: 10px;
+}
+.product-card button:hover{
+    background-color: orange;
+}
