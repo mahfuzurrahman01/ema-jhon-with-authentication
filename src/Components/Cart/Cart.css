@@ -1,0 +1,22 @@
+.cart{
+    position: sticky;
+    top: 0;
+}
+
+h5 {
+    text-align: center;
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 30px;
+}
+.details{
+    margin: 50px 23px;
+    color: #2A414F;
+}
+.details p{
+    font-size: 20px;
+    margin-bottom: 12px;
+    font-weight: 400;
+}
