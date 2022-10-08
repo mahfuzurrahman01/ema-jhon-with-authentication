@@ -1,0 +1,38 @@
+.img img{
+    width: 91px;
+}
+.item-details{
+    display: flex;
+    margin-left: 17px;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+.item-details p{
+    margin: 0px;
+}
+.all-item{
+    display: flex;
+    border: 2px solid gray;
+    width: 571px;
+    margin: 0 auto;
+    padding: 8px;
+    align-items: center;
+    margin-top: 12px;
+    border-radius: 7px;
+}
+.dlt-btn button{
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    font-size: 25px;
+    color: #EB5757;
+    background-color: #eb575750;
+    border: none;
+    margin-right: 17px;
+    cursor: pointer;
+}
+.dlt-btn button:hover{
+    background-color: #f89393af;
+}
+

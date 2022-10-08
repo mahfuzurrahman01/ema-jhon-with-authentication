@@ -1,32 +1,64 @@
 import React, { useEffect, useState } from 'react';
+import { useLoaderData } from 'react-router-dom';
+import { addToDb, deleteShoppingCart, getStoredCart } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
 import Products from '../Products/Products';
 import "./Shop.css"
 const Shop = () => {
-    const [items,setItems] = useState([]);
-    useEffect(() =>{
-        fetch('products.json')
-        .then(res => res.json())
-        .then(data => setItems(data))
-    },[])
-    const [cart,setCart] = useState([]);
-    const handleAddToCart = (items) =>{
-        // console.log(items) 
-        const newCart = [...cart , items];
-        setCart(newCart)
-        
+
+    const {products} = useLoaderData();
+    console.log(products)
+
+    const [cart, setCart] = useState([]);
+    //clear whole cart
+    const clearCart = () =>{
+        setCart([])
+        deleteShoppingCart()
     }
-    
-    
+
+    useEffect(() => {
+        let totalItems= []
+  
+        const storedCart = getStoredCart();
+        
+        for (const id in storedCart){
+            const addedItems = products.find(item => item.id === id)
+            if(addedItems){
+                const quantity = storedCart[id]
+                addedItems.quantity = quantity;
+                totalItems.push(addedItems)
+            }
+        }
+        setCart(totalItems)
+    },[products])
+    const handleAddToCart = (selectedItems) => {
+        const exists = cart.find(items => items.id === selectedItems.id);
+        let newCart = [];
+        if(!exists){
+            selectedItems.quantity = 1;
+             newCart = [...cart,selectedItems]
+        }
+        else{
+            const rest = cart.filter(items =>items.id !== selectedItems.id);
+            exists.quantity = exists.quantity + 1;
+            newCart = [...rest,exists]
+        
+        }
+       
+        setCart(newCart)
+        addToDb(selectedItems.id)
+    }
+
+
     return (
         <div className='shop-container'>
             <div className="products-container">
                 {
-                    items.map(item => <Products key ={item.id} item = {item} handleAddToCart = {handleAddToCart}></Products>)
+                    products.map(item => <Products key={item.id} item={item} handleAddToCart={handleAddToCart}></Products>)
                 }
             </div>
             <div className="cart-container">
-                <Cart cart = {cart}></Cart>
+                <Cart clearCart = {clearCart} cart={cart}></Cart>
             </div>
         </div>
     );
