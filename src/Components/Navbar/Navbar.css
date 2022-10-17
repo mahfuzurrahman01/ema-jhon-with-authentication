@@ -38,3 +38,10 @@
 .menu-tabs a:hover::after{
     width: 100%;
 }
+.name p{
+    font-size: 15px;
+    background-color: #ffa013;
+    padding: 0px 10px;
+    border-radius: 2px;
+    color: white;
+}

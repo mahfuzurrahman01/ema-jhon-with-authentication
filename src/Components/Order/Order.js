@@ -6,7 +6,7 @@ import OrderItems from '../orderedItems/OrderItems';
 import { deleteShoppingCart, removeFromDb } from '../../utilities/fakedb';
 
 const Order = () => {
-    const { products, initialCart } = useLoaderData();
+    const { initialCart } = useLoaderData();
     const [cart, setCart] = useState(initialCart);
     const handleRemoveItem = (id) => {
         removeFromDb(id)
@@ -29,7 +29,9 @@ const Order = () => {
                 }
             </div>
             <div className="cart-container">
-                <Cart cart={cart} clearCart = {clearCart}></Cart>
+                <Cart cart={cart} clearCart = {clearCart}>
+                <button className='review-btn'><Link to='/shipping' className='link'>Shipping</Link></button>
+                </Cart>
             </div>
         </div>
     );

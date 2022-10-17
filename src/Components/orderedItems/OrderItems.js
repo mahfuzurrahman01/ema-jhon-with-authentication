@@ -4,7 +4,6 @@ import React from 'react';
 import "./OrderItmes.css"
 const OrderItems = ({ item , handleRemoveItem }) => {
     const { id, name, img, quantity, price ,shipping } = item;
-    console.log(name, img, quantity, price)
     return (
         <div className='all-item'>
             <div className='img'>

@@ -1,9 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2'
 
 import "./Cart.css"
-const Cart = ({cart,clearCart}) => {
+const Cart = ({cart,clearCart,children}) => {
     let total = 0;
     let shipping = 0;
     let quantity = 0;
@@ -23,25 +22,24 @@ const Cart = ({cart,clearCart}) => {
 
 
 
-const alertHandler = () =>{
-    const Toast = Swal.mixin({
-        toast: true,
-        position: 'top',
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-          toast.addEventListener('mouseenter', Swal.stopTimer)
-          toast.addEventListener('mouseleave', Swal.resumeTimer)
-        }
-      })
+// const alertHandler = () =>{
+//     const Toast = Swal.mixin({
+//         toast: true,
+//         position: 'top',
+//         showConfirmButton: false,
+//         timer: 3000,
+//         timerProgressBar: true,
+//         didOpen: (toast) => {
+//           toast.addEventListener('mouseenter', Swal.stopTimer)
+//           toast.addEventListener('mouseleave', Swal.resumeTimer)
+//         }
+//       })
       
-      Toast.fire({
-        icon: 'success',
-        title: 'Signed in successfully'
-      })
-       
-}
+//       Toast.fire({
+//         icon: 'success',
+//         title: 'Signed in successfully'
+//       })
+//}
 
     return (
         <div className='cart'>
@@ -55,7 +53,8 @@ const alertHandler = () =>{
             <h5>Grand Total: ${grandTotal}</h5>
             <div className='buttons'>
                 <button className='clear-btn' onClick={clearCart}>Clear cart</button>
-                <button className='review-btn'><Link to='/order' className='link'>Review cart</Link></button>
+                {/* <button className='review-btn'><Link to='/order' className='link'>Review cart</Link></button> */}
+                {children} 
             </div>
         </div>
     );

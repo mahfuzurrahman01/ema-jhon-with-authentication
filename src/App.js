@@ -6,9 +6,11 @@ import Login from './Components/Login/Login';
 import Main from './Components/Main/Main';
 // import Navbar from './Components/Navbar/Navbar';
 import Order from './Components/Order/Order';
+import Private from './Components/PrivateRoute/Private';
 import { ProductLoader } from './Components/ProductLoader/ProductLoader';
 import Registration from './Components/Registration/Registration';
 import Review from './Components/Review/Review';
+import Shipping from './Components/Shipping/Shipping';
 import Shop from './Components/Shop/Shop';
 
 function App() {
@@ -27,6 +29,10 @@ function App() {
           element: <Shop></Shop>
         },
         {
+          path: '/shipping',
+          element: <Private><Shipping></Shipping></Private>
+        },
+        {
           path: '/order',
           loader: ProductLoader,
           element: <Order></Order>
@@ -37,7 +43,7 @@ function App() {
         },
         {
           path: '/inventory',
-          element: <Inventory></Inventory>
+          element: <Private><Inventory></Inventory></Private>
         },
         {
           path: '/login',
